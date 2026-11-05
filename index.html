@@ -30,10 +30,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 /* başlık ve menü */
 header.site{background:var(--surface);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:14px;padding:16px 0}
-.ball{width:52px;height:52px;border-radius:50%;background:var(--orange);position:relative;flex:none;overflow:hidden}
-.ball::before,.ball::after{content:"";position:absolute;border:2px solid var(--navy)}
-.ball::before{left:50%;top:-10%;bottom:-10%;border-width:0 0 0 2px;transform:translateX(-1px)}
-.ball::after{left:-10%;right:-10%;top:50%;border-width:2px 0 0 0;transform:translateY(-1px)}
+.logo{width:64px;height:64px;flex:none;object-fit:contain;background:#fff;border-radius:8px;display:block}
 .brand h1{font:700 30px/1 "Barlow Condensed",Barlow,sans-serif;margin:0;letter-spacing:.01em}
 .brand small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
 nav.main{background:var(--navy)}
@@ -144,8 +141,8 @@ footer a{opacity:.85}footer a:hover{opacity:1}
   .top .wrap{min-height:40px}
   .top .tools{gap:12px}
   .brand{gap:10px;padding:12px 0}
-  .ball{width:40px;height:40px}
-  .brand h1{font-size:23px;line-height:1.05}
+  .logo{width:48px;height:48px}
+    .brand h1{font-size:23px;line-height:1.05}
   .brand small{font-size:12px}
   nav.main a{padding:13px 14px;font-size:17px}
   .hero{margin:16px 0}
@@ -176,7 +173,7 @@ footer a{opacity:.85}footer a:hover{opacity:1}
 
 <header class="site"><div class="wrap">
   <a class="brand" href="#">
-    <span class="ball" aria-hidden="true"></span>
+    <img class="logo" src="logo.jpg" alt="Malatya Basketbol Temsilciliği logosu" width="64" height="64">
     <span><h1>Malatya Basketbol Temsilciliği</h1><small>Malatya basketbolunun haber ve fikstür adresi</small></span>
   </a>
 </div></header>
