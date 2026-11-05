@@ -14,9 +14,9 @@
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   color-scheme:light;
 }
-html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.55 Barlow,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.55 Barlow,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
@@ -25,6 +25,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-off
 .top{background:var(--navy);color:var(--navy-ink);font-size:14px}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;min-height:36px;gap:12px}
 .top a{opacity:.85}.top a:hover{opacity:1}
+#today{font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* başlık ve menü */
 header.site{background:var(--surface);border-bottom:1px solid var(--line)}
@@ -36,7 +37,7 @@ header.site{background:var(--surface);border-bottom:1px solid var(--line)}
 .brand h1{font:700 30px/1 "Barlow Condensed",Barlow,sans-serif;margin:0;letter-spacing:.01em}
 .brand small{display:block;color:var(--muted);font-size:14px;margin-top:4px}
 nav.main{background:var(--navy)}
-nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;overflow-x:auto}
+nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 nav.main a{display:block;padding:14px 18px;color:var(--navy-ink);font:600 18px/1 "Barlow Condensed",Barlow,sans-serif;white-space:nowrap}
 nav.main a:hover{background:rgba(255,255,255,.1)}
 nav.main a.fix{background:var(--orange);color:var(--orange-ink)}
@@ -78,7 +79,7 @@ nav.main a.fix:hover{filter:brightness(1.08)}
 .empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:6px}
 
 /* haber detayı */
-dialog{border:0;border-radius:8px;padding:0;max-width:720px;width:calc(100% - 24px);background:var(--surface);color:var(--ink)}
+dialog{border:0;border-radius:8px;padding:0;max-width:720px;width:calc(100% - 24px);max-height:90vh;overflow:auto;background:var(--surface);color:var(--ink)}
 dialog::backdrop{background:rgba(5,12,28,.65)}
 dialog .img{aspect-ratio:16/9;background:var(--navy) center/cover}
 dialog .b{padding:20px 24px 26px}
@@ -102,7 +103,7 @@ footer a{opacity:.85}footer a:hover{opacity:1}
 .tema .sun{left:8px}.tema .moon{right:8px}
 :root:not([data-theme="dark"]) .tema .sun,:root[data-theme="dark"] .tema .moon{opacity:1}
 :root[data-theme="dark"] .tema .knob{transform:translateX(30px)}
-.gtabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 14px;padding-bottom:4px}
+.gtabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 14px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
 .gtab{flex:none;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:10px 20px;font:600 19px/1 "Barlow Condensed",Barlow,sans-serif;cursor:pointer}
 .gtab:hover{border-color:var(--orange)}
 .gtab[aria-selected="true"]{background:var(--orange);border-color:var(--orange);color:#fff}
@@ -112,7 +113,7 @@ footer a{opacity:.85}footer a:hover{opacity:1}
 .mac .sk{font:700 26px/1 "Barlow Condensed",Barlow,sans-serif;min-width:96px;text-align:center;white-space:nowrap;color:var(--muted)}
 .mac .sk .w{color:var(--orange)}
 @media (max-width:520px){.mac{grid-template-columns:1fr;text-align:center;gap:4px}.mac .ev{text-align:center}}
-.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--surface);border:1px solid var(--line);border-radius:6px}
 table.puan{width:100%;border-collapse:collapse;min-width:520px}
 table.puan th,table.puan td{padding:11px 12px;text-align:center;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
 table.puan th{background:var(--navy);color:var(--navy-ink);font:600 16px/1 "Barlow Condensed",Barlow,sans-serif;white-space:nowrap}
@@ -130,7 +131,7 @@ table.puan tbody tr:hover{background:var(--bg)}
 .fk-head h2{font:700 clamp(34px,6vw,56px)/1 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;margin:0}
 .fk-sub,.fk-not,.fk-all{font-family:"Space Mono",ui-monospace,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em}
 .fk-sub{font-size:12px;color:var(--muted)}
-.fk-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:22px}
+.fk-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:22px}
 .fk-tile{display:block;min-height:150px;padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .fk-tile span{display:block}
 .fk-tile .ay{font:700 30px/1 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase}
@@ -145,11 +146,30 @@ table.puan tbody tr:hover{background:var(--bg)}
 .fk-not{font-size:12px;color:var(--muted)}
 .fk-all{font-size:13px;font-weight:700;color:var(--kirmizi);border-bottom:2px solid var(--kirmizi);padding-bottom:3px}
 @media (max-width:900px){.fk-grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:520px){.fk-grid{grid-template-columns:repeat(2,1fr)}.fk-tile{min-height:130px;padding:16px}}
 @media (max-width:820px){
   .hero{grid-template-columns:1fr}
   .lead{min-height:300px}.lead h2{font-size:30px}
 }
+/* telefon uyumu */
+@media (max-width:600px){
+  .top{font-size:13px}
+  .top .wrap{min-height:40px}
+  .top .tools{gap:12px}
+  .brand{gap:10px;padding:12px 0}
+  .ball{width:40px;height:40px}
+  .brand h1{font-size:23px;line-height:1.05}
+  .brand small{font-size:12px}
+  nav.main a{padding:13px 14px;font-size:17px}
+  .hero{margin:16px 0}
+  .lead{min-height:260px}.lead .txt{padding:16px}.lead h2{font-size:26px}
+  .sec h2{font-size:24px}
+  .card h3{font-size:20px}
+  .gtab{padding:9px 16px;font-size:18px}
+  dialog .b{padding:16px 16px 22px}dialog h2{font-size:28px}
+  footer .wrap{flex-direction:column}
+}
+@media (max-width:520px){.fk-grid{grid-template-columns:repeat(2,1fr)}.fk-tile{min-height:130px;padding:16px}.fk-tile .ay{font-size:26px}}
+@media (max-width:380px){.top .wrap{flex-wrap:wrap;padding-top:6px;padding-bottom:6px}#today{font-size:12px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -170,7 +190,7 @@ table.puan tbody tr:hover{background:var(--bg)}
 <header class="site"><div class="wrap">
   <a class="brand" href="#">
     <span class="ball" aria-hidden="true"></span>
-    <span><h1>Malatya Basketbol Federasyonu</h1><small>Malatya basketbolunun haber ve fikstür adresi</small></span>
+    <span><h1>Malatya Basketbol Temsilciliği</h1><small>Malatya basketbolunun haber ve fikstür adresi</small></span>
   </a>
 </div></header>
 
@@ -226,9 +246,12 @@ table.puan tbody tr:hover{background:var(--bg)}
 <script>
 /* ============ AYARLAR ============ */
 
-// Fikstür düğmesine basınca YENİ SEKMEDE açılacak adres.
-// Gerçek fikstür sayfasının adresini buraya yazın.
+// "Tüm fikstürler" bağlantısı (yeni sekmede açılır).
 const FIKSTUR_URL = "https://ankarabasket.org.tr/";
+
+// >>> KASIM ve ARALIK linklerini BURAYA yazın (şimdilik geçici adres var) <<<
+const KASIM_URL  = "kasim-fikstur.pdf";
+const ARALIK_URL = "https://ankarabasket.org.tr/";
 
 // Haberler: yeni haber eklemek için listenin BAŞINA bir blok ekleyin.
 // image boş bırakılabilir ("").
@@ -251,17 +274,13 @@ const NEWS = [
   }
 ];
 
-// Fikstür bültenleri: her ayın kutusuna basınca url adresi YENİ SEKMEDE açılır.
-// url dolu ise kutu kırmızı "GÜNCEL" olur, boş ("") ise gri "YAKINDA" kalır.
-// no: bülten numarası (isteğe bağlı, boş bırakılabilir). Aşağıdakiler ÖRNEK verilerdir.
+// Fikstür bültenleri: url dolu ise kutu turuncu "GÜNCEL" olur, boş ("") ise gri "YAKINDA" kalır.
 const FK_ALT = "2026/27 — Yerel Lig Müsabakaları";
 const FK_NOT = "Hazırlık, okul ve 3x3 müsabakaları için ayrı bültenler yayımlanır.";
 const FK_TUM_URL = FIKSTUR_URL;
 const FIKSTUR_AYLARI = [
-  {ay:"Eylül",   yil:2026, no:1, url:FIKSTUR_URL},
-  {ay:"Ekim",    yil:2026, no:2, url:FIKSTUR_URL},
-  {ay:"Kasım",   yil:2026, no:null, url:""},
-  {ay:"Aralık",  yil:2026, no:null, url:""},
+  {ay:"Kasım",   yil:2026, no:null, url:KASIM_URL},
+  {ay:"Aralık",  yil:2026, no:null, url:ARALIK_URL},
   {ay:"Ocak",    yil:2027, no:null, url:""},
   {ay:"Şubat",   yil:2027, no:null, url:""},
   {ay:"Mart",    yil:2027, no:null, url:""},
@@ -270,10 +289,7 @@ const FIKSTUR_AYLARI = [
   {ay:"Haziran", yil:2027, no:null, url:""}
 ];
 
-// Gruplar: her grubun takımları ve maçları.
-// Maç satırı: [hafta, ev sahibi, deplasman, ev skoru, deplasman skoru]
-// Oynanmamış maçta skorlara null yazın. Puan durumu maç sonuçlarından otomatik hesaplanır.
-// Aşağıdakiler ÖRNEK verilerdir.
+// Gruplar (ÖRNEK veriler). Maç satırı: [hafta, ev sahibi, deplasman, ev skoru, deplasman skoru]
 const LIG_ADI = "Lig adı";
 const GRUPLAR = [
   {ad:"A Grubu", takimlar:["Takım A1","Takım A2","Takım A3","Takım A4"], maclar:[
@@ -299,8 +315,18 @@ const tr = d => { const t=new Date(d+"T12:00:00"); return t.getDate()+" "+aylar[
 const esc = s => String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const bg = u => u ? `style="background-image:url('${esc(u)}')"` : "";
 
-document.querySelectorAll(".js-fikstur").forEach(a=>a.href=FIKSTUR_URL);
-document.getElementById("today").textContent = tr(new Date().toISOString().slice(0,10));
+// Güncel tarih ve saat (Türkiye saati, her saniye güncellenir)
+const gunler=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+function saatYaz(){
+  const p = {};
+  new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Istanbul",year:"numeric",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false,weekday:"short"})
+    .formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
+  const gunIdx = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday);
+  const hh = p.hour==="24" ? "00" : p.hour;
+  document.getElementById("today").textContent =
+    p.day+" "+aylar[+p.month-1]+" "+p.year+", "+gunler[gunIdx]+" "+hh+":"+p.minute+":"+p.second;
+}
+saatYaz(); setInterval(saatYaz,1000);
 document.getElementById("yil").textContent = new Date().getFullYear();
 
 const list = [...NEWS].sort((a,b)=>b.date.localeCompare(a.date));
